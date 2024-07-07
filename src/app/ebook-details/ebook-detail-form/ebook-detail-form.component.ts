@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
 import { response } from 'express';
 import { EbookDetail } from '../../shared/ebook-detail.model' ;
 import { ToastrService } from 'ngx-toastr';
-
+declare var $: any; 
 
 @Component({
   selector: 'app-ebook-detail-form',
@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './ebook-detail-form.component.css'
 })
 export class EbookDetailFormComponent implements OnInit {
-
+  IsmodelShow: boolean;
   constructor(public service: EbookDetailService, private toastr: ToastrService){
   }
 
@@ -39,6 +39,8 @@ export class EbookDetailFormComponent implements OnInit {
 
       (response) => {
         this.resetForm(form);
+        this.service.refreshList();
+        $("#signup-modal").modal("hide");
         this.toastr.success('Submitted successfully','Ebook Detail Register');
       },
       (error) => {

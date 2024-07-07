@@ -4,7 +4,7 @@ export class EbookDetail {
     Title: string = "";
     Author: string = "";
     Publisher: string = "";
-    PublishDate!: Date;
+    PublishDate: string ="";
     FileURL: string = "";
     ThumbnailUrl: string = "";
     ImageUrl: string = "";

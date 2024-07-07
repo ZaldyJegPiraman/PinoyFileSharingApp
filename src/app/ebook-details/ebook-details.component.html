@@ -4,28 +4,30 @@
     <button type="button" class="btn btn-success" data-bs-toggle="modal"
     data-bs-target="#signup-modal"  (click)="addNew()" >Add new</button>
 <div class="col-md-12">
-    <table class="table">
-        <thead class="thead-light">
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>PublishDate</th>
-                <th></th>
-            </tr>
-         
-        </thead>
-        <tbody>
-            <tr *ngFor="let ebookDetail of service.list">
-                <td (click)="populateForm(ebookDetail)"  data-bs-toggle="modal"
-                data-bs-target="#signup-modal">{{ ebookDetail.Title }}</td>
-                <td (click)="populateForm(ebookDetail)"  data-bs-toggle="modal"
-                data-bs-target="#signup-modal">{{ ebookDetail.Author }}</td>
-                <td (click)="populateForm(ebookDetail)"  data-bs-toggle="modal"
-                data-bs-target="#signup-modal">{{ ebookDetail.PublishDate }}</td>
-                <td><i data-bs-toggle="modal" data-bs-target="#signup-modal" class="far fa-edit fa-lg text-success" style="margin-right: 6px;" ></i> <i (click)="onDelete(ebookDetail.Id)" class="far fa-trash-alt fa-lg text-danger"></i></td>
-            </tr>
-        </tbody>
-    </table> 
+        
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>PublishDate</th>
+                    <th></th>
+                </tr>
+            
+            </thead>
+            <tbody>
+                <tr *ngFor="let ebookDetail of this.service.list" >
+                    <td (click)="populateForm(ebookDetail)"  data-bs-toggle="modal"
+                    data-bs-target="#signup-modal">{{ ebookDetail.Title }}</td>
+                    <td (click)="populateForm(ebookDetail)"  data-bs-toggle="modal"
+                    data-bs-target="#signup-modal">{{ ebookDetail.Author }}</td>
+                    <td (click)="populateForm(ebookDetail)"  data-bs-toggle="modal"
+                    data-bs-target="#signup-modal">{{ ebookDetail.PublishDate }}</td>
+                    <td><i data-bs-toggle="modal" data-bs-target="#signup-modal" class="far fa-edit fa-lg text-success" style="margin-right: 6px;" ></i> <i (click)="onDelete(ebookDetail.Id)" class="far fa-trash-alt fa-lg text-danger"></i></td>
+                </tr>
+            </tbody>
+        </table> 
+
 </div>
 </div>
 <app-ebook-detail-form></app-ebook-detail-form>

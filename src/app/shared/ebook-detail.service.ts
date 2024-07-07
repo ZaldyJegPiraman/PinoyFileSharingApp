@@ -23,14 +23,13 @@ export class EbookDetailService {
   }
 
   refreshList() {
-    return this.http.get(this.baseUrl).toPromise()
-      .then((response) => (
-        this.list = response as EbookDetail[],
-        console.log(this.list)
-      ));
+   // return this.http.get(this.baseUrl).toPromise()
+     // .then((response) => (
+      //  this.list = response as EbookDetail[]
+      //));
 
 
-    //return this.http.get<EbookDetail[]>(this.baseUrl).subscribe(data => this.list = data as EbookDetail[]  );
+    return this.http.get<EbookDetail[]>(this.baseUrl).subscribe(data => this.list = data as EbookDetail[]  );
   }
 
   putEbookDetail() {

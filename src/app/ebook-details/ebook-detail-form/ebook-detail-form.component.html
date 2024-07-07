@@ -1,0 +1,80 @@
+
+
+
+     <!-- Signup modal content -->
+  <div id="signup-modal" class="modal fade" tabindex="-1" role="dialog"
+  aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+
+          <div class="modal-body">
+              <div class="text-center mt-2 mb-4">
+                  <a href="index.html" class="text-success">
+                      <span><img class="me-2" src="assets/assets/images/logo-icon.png"
+                              alt="" height="18"><img
+                              src="assets/assets/images/logo-text.png" alt=""
+                              height="18"></span>
+                  </a>
+              </div>
+
+
+              <form autocomplete="off" novalidate #form="ngForm" (submit)="onSubmit(form)">
+                <input type="hidden"
+                name="Id"
+                [value]="service.formData.Id"/>
+               
+                <input type="hidden"
+                name="fileURL"  id="fileURL"
+                [(ngModel)]="service.formData.FileURL"/>
+
+                <input type="hidden"
+                name="thumbnailUrl"  id="thumbnailUrl"
+                [(ngModel)]="service.formData.ThumbnailUrl"/>
+
+                <input type="hidden"
+                name="imageUrl"  id="imageUrl"
+                [(ngModel)]="service.formData.ImageUrl"/>
+
+                
+                <div class="form-group">
+                   <label>Title</label>
+                   <input class="form-control form-control-lg" placeholder="Title" name="Title" #Title="ngModel" [(ngModel)]="service.formData.Title" 
+                   required 
+                   [class.invalid]="Title.invalid && Title.touched">
+                </div>
+               
+                <div class="form-group">
+                   <label>Author</label>
+                   <input class="form-control form-control-lg" placeholder="Author" name="Author" #Author="ngModel" [(ngModel)]="service.formData.Author"
+                   required
+                   [class.invalid]="Author.invalid && Author.touched">
+                </div>
+               <div class="form-row">
+                <div class="form-group col-md-6">
+                   <label>Publisher</label>
+                   <input class="form-control form-control-lg" placeholder="Publisher" name="Publisher" #Publisher="ngModel" [(ngModel)]="service.formData.Publisher"
+                   required
+                   [class.invalid]="Publisher.invalid && Publisher.touched">
+                </div>
+               
+                <div class="form-group col-md-6">
+                   <label>PublishDate</label>
+                   <input class="form-control form-control-lg"  placeholder="MM/DD/YYYY" name="PublishDate" #PublishDate="ngModel" [(ngModel)]="service.formData.PublishDate"
+                   
+                   required
+                   maxlength="10"
+                   minlength="10"
+                   [class.invalid]="PublishDate.invalid && PublishDate.touched">
+                </div></div>
+               
+                <div class="form-group">
+                   <button class="btn btn-info btn-lg btn-block" type="submit">SUBMIT</button>
+                </div>
+               </form>
+
+           
+
+          </div>
+      </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
